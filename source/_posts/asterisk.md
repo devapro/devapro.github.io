@@ -1,6 +1,6 @@
 ---
 title: Self-hosted SIP server
-date: 2025-29-12 23:14:34
+date: 2025-12-12 23:14:34
 lang: en
 categories:
 - Linux
