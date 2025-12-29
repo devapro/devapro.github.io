@@ -4,13 +4,14 @@ lang: en
 categories:
   - Linux
   - Raspberry Pi
+  - VPN
 date: 2025-04-23 00:03:37
 tags:
-  - Linux
-  - Raspberry Pi
-  - VPN
-  - OpenVPN
-  - WireGuard
+  - linux
+  - raspberry Pi
+  - vpn
+  - openVPN
+  - wireGuard
 excerpt:
   - Guide to setting up VPN clients on Raspberry Pi for secure remote access
 ---

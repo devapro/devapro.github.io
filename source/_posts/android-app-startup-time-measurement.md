@@ -8,7 +8,6 @@ tags:
   - android
   - performance
   - optimization
-  - testing
   - adb
 date: 2025-12-29 18:30:00
 excerpt:

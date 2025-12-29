@@ -6,10 +6,9 @@ categories:
   - Raspberry Pi
 date: 2025-12-29 17:30:00
 tags:
-  - Linux
-  - Raspberry Pi
-  - Swap
-  - Memory
+  - linux
+  - raspberry Pi
+  - swap
 excerpt:
   - Guide to creating and configuring a swap file on Raspberry Pi to improve performance and prevent out-of-memory errors
 ---
@@ -411,16 +410,6 @@ iostat -x 2
 for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | head -10
 ```
 
-## Best Practices
-
-1. **Set swappiness to 10** on Raspberry Pi to minimize SD card wear
-2. **Use reliable SD cards** with wear leveling (Samsung EVO, SanDisk Extreme)
-3. **Consider USB storage** for swap if available (faster, more durable)
-4. **Monitor swap usage** regularly with `free -h`
-5. **Don't make swap too large** (1-2GB is typically enough)
-6. **Keep backups** of important data (SD cards can fail)
-7. **Use zram** as an alternative (compressed RAM, no disk writes)
-
 ## Alternative: Using zram Instead
 
 For better performance and less SD card wear, consider zram (compressed RAM):
@@ -441,15 +430,6 @@ sudo systemctl enable zramswap
 ```
 
 Zram compresses memory in RAM itself, avoiding slow disk I/O and SD card wear.
-
-## Conclusion
-
-You now have a properly configured swap file on your Raspberry Pi! This will:
-- Prevent out-of-memory crashes
-- Allow running memory-intensive applications
-- Improve system stability under load
-
-Remember to monitor swap usage and adjust swappiness based on your workload. For best SD card longevity, keep swappiness low (10) and consider moving swap to USB storage.
 
 ## Quick Reference
 

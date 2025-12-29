@@ -10,13 +10,7 @@ if (page.archive){
 <h2 class="archive-title<% if (page.tag){ %> tag<% } else if (page.category){ %> category<% } %>"><%= title %></h2>
 
 <div class="archive">
-  <%
-  var currentLang = page.lang || config.language[0] || 'en';
-  var filteredPosts = page.posts.filter(function(item) {
-    return item.lang === currentLang;
-  });
-  %>
-  <% filteredPosts.forEach(function(item){ %>
+  <% page.posts.each(function(item){ %>
     <article class="<%= item.layout %>">
       <div class="post-content">
         <header>

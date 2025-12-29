@@ -3,13 +3,10 @@ title: Hexo Static Site Generator - Commands and Themes
 date: 2020-03-01 01:11:31
 lang: en
 categories:
-- cms
+- CMS
 tags:
 - cms
 - hexo
-- markdown
-- web
-- themes
 excerpt:
 - Complete Hexo guide covering essential commands, workflow, and recommended themes
 ---

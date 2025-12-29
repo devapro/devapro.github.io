@@ -2,27 +2,28 @@
   <h1><a href="<%- config.root %>"><%= config.title %></a></h1>
   <h2><a href="<%- config.root %>"><% if (config.subtitle){ %><%= config.subtitle %><% } %></a></h2>
 </div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    <% for (var i in theme.menu){ %>
-      <li><a href="<%- url_for_lang(theme.menu[i]) %>"><%= i %></a></li>
-    <% } %>
-  </ul>
-  <div class="clearfix"></div>
-</nav>
+<div class="alignright">
+  <!-- Language Switcher -->
+  <nav id="lang-switcher">
+    <ul>
+      <% config.language.forEach(function(lang){ %>
+        <li>
+          <a href="<%= lang === 'en' ? '/' : '/' + lang + '/' %>" class="<%= page.lang === lang ? 'active' : '' %>">
+            <%= lang.toUpperCase() %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </nav>
 
-<!-- Language Switcher -->
-<nav id="lang-switcher" class="alignright">
-  <ul>
-    <% config.language.forEach(function(lang){ %>
-      <li>
-        <a href="<%= lang === 'en' ? '/' : '/' + lang + '/' %>" class="<%= page.lang === lang ? 'active' : '' %>">
-          <%= lang.toUpperCase() %>
-        </a>
-      </li>
-    <% }); %>
-  </ul>
-  <div class="clearfix"></div>
-</nav>
+  <!-- Main Navigation -->
+  <nav id="main-nav">
+    <ul>
+      <% for (var i in theme.menu){ %>
+        <li><a href="<%- url_for_lang(theme.menu[i]) %>"><%= i %></a></li>
+      <% } %>
+    </ul>
+  </nav>
+</div>
 
 <div class="clearfix"></div>
