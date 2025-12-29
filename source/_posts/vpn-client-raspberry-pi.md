@@ -3,7 +3,6 @@ title: Настройка VPN клиента на Raspberry Pi (OpenVPN и WireG
 lang: ru
 categories:
   - Linux
-  - Raspberry Pi
 date: 2025-04-23 00:03:37
 tags:
   - linux

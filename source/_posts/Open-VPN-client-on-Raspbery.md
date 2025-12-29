@@ -3,8 +3,6 @@ title: VPN Client Setup on Raspberry Pi (OpenVPN & WireGuard)
 lang: en
 categories:
   - Linux
-  - Raspberry Pi
-  - VPN
 date: 2025-04-23 00:03:37
 tags:
   - linux

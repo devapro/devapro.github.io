@@ -3,7 +3,6 @@ title: How to Set JAVA_HOME Environment Variable
 lang: en
 categories:
   - Linux
-  - Development
 date: 2025-12-29 17:45:00
 tags:
   - linux

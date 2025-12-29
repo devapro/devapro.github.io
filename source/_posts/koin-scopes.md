@@ -3,7 +3,6 @@ title: Understanding Koin Scopes for Android Dependency Injection
 lang: en
 categories:
   - Android
-  - Development
 tags:
   - android
   - kotlin

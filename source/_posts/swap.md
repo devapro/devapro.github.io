@@ -3,7 +3,6 @@ title: How to Configure Swap File on Raspberry Pi
 lang: en
 categories:
   - Linux
-  - Raspberry Pi
 date: 2025-12-29 17:30:00
 tags:
   - linux
