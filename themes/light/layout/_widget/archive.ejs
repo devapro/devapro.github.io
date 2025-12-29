@@ -1,8 +1,39 @@
-<% if (site.posts.length){ %>
+<%
+var currentLang = page.lang || config.language[0] || 'en';
+var langPosts = site.posts.filter(function(post) {
+  return post.lang === currentLang;
+});
+
+// Group posts by year and month
+var archives = {};
+langPosts.forEach(function(post) {
+  var year = post.date.year();
+  var month = post.date.month() + 1; // month() returns 0-11
+  var key = year + '/' + (month < 10 ? '0' + month : month);
+  if (!archives[key]) {
+    archives[key] = { year: year, month: month, count: 0, path: config.archive_dir + '/' + year + '/' + (month < 10 ? '0' + month : month) + '/' };
+  }
+  archives[key].count++;
+});
+
+var archiveList = Object.keys(archives).sort().reverse().map(function(key) {
+  return archives[key];
+});
+%>
+<% if (archiveList.length){ %>
   <div class="widget widget-archives">
     <h3 class="title"><%= __('archive_a') %></h3>
     <div class="entry">
-      <%- list_archives({show_count: true, type: 'monthly'}) %>
+      <ul>
+        <% archiveList.forEach(function(item) { %>
+          <li>
+            <a href="<%- url_for_lang(item.path) %>">
+              <%= item.year + '/' + (item.month < 10 ? '0' + item.month : item.month) %>
+            </a>
+            <span class="count"><%= item.count %></span>
+          </li>
+        <% }); %>
+      </ul>
     </div>
   </div>
 <% } %>

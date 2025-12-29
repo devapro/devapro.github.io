@@ -1,5 +1,6 @@
 ---
 title: Android dialog on screen with notch
+lang: en
 categories:
   - Android
 tags:

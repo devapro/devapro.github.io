@@ -1,5 +1,6 @@
 ---
 title: Recycler view with titles
+lang: en
 categories:
   - Android
 tags:

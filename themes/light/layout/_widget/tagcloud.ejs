@@ -1,8 +1,16 @@
-<% if (site.tags.length){ %>
+<%
+var currentLang = page.lang || config.language[0] || 'en';
+var langTags = site.tags.filter(function(tag) {
+  return tag.posts.some(function(post) {
+    return post.lang === currentLang;
+  });
+});
+%>
+<% if (langTags.length){ %>
 <div class="widget tagcloud">
   <h3 class="title"><%= __('tagcloud') %></h3>
   <div class="entry">
-    <%- tagcloud(site.tags, {}) %>
+    <%- tagcloud(langTags, {}) %>
   </div>
 </div>
 <% } %>

@@ -8,14 +8,15 @@ subtitle: 'Code & Conquer'
 description: 'It is time to make some order...'
 keywords:
 author: Arsenii Kharlanov
-language: en
+language: [en, ru]
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://devapro.github.io
-permalink: :year/:month/:day/:title/
+permalink: :lang/:year/:month/:day/:title/
 permalink_defaults:
+  lang: en
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -105,3 +106,8 @@ theme: light
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# i18n Configuration
+i18n:
+  type: [post, page]
+  generator: [index, archive, category, tag]

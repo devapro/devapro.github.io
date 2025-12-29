@@ -1,4 +1,10 @@
-<% page.posts.each(function(item){ %>
+<%
+var currentLang = page.lang || config.language[0] || 'en';
+var filteredPosts = page.posts.filter(function(item) {
+  return item.lang === currentLang;
+});
+%>
+<% filteredPosts.forEach(function(item){ %>
   <%- partial('_partial/article', {item: item, index: true}) %>
 <% }); %>
 

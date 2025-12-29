@@ -1,5 +1,6 @@
 ---
 title: Data binding. Kotlin extensions.
+lang: en
 categories:
 - Android
 tags:

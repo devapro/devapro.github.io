@@ -1,6 +1,7 @@
 ---
 title: Play GIF
 date: 2020-03-03 23:17:59
+lang: en
 categories:
 - Android
 tags:

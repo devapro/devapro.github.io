@@ -1,12 +1,15 @@
 ---
 title: Self-hosted SIP server
 date: 2025-29-12 23:14:34
+lang: en
 categories:
 - Linux
 tags:
 - linux
 - self-hosted
 - sip
+translations:
+  ru: asterisk-server-rus
 excerpt:
 - Self-hosted SIP server
 ---

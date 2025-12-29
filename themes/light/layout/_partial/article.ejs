@@ -6,7 +6,7 @@
     <header>
       <% if (item.layout != 'page'){ %>
         <div class="icon"></div>
-        <time class="dt-published" datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- url_for(item.path) %>"><%= item.date.format(config.date_format) %></a></time>
+        <time class="dt-published" datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- url_for_lang(item.path) %>"><%= item.date.format(config.date_format) %></a></time>
       <% } %>
       <%- partial('post/title') %>
     </header>
@@ -21,7 +21,7 @@
       <% if (index){ %>
         <% if (item.excerpt){ %>
           <div class="alignleft">
-            <a href="<%- url_for(item.path) %>#more" class="more-link"><%= theme.excerpt_link %></a>
+            <a href="<%- url_for_lang(item.path) %>#more" class="more-link"><%= theme.excerpt_link %></a>
           </div>
         <% } %>
         <% if (item.comments && theme.disqus_shortname){ %>
@@ -32,6 +32,18 @@
       <% } else { %>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
+
+        <!-- Translation Links -->
+        <% if (item.translations) { %>
+          <div class="translations">
+            <span><%= __('available_in') || 'Also available in:' %></span>
+            <% Object.keys(item.translations).forEach(function(lang){ %>
+              <a href="/<%= lang %>/<%= item.translations[lang] %>/" class="translation-link">
+                <%= lang.toUpperCase() %>
+              </a>
+            <% }); %>
+          </div>
+        <% } %>
       <% } %>
       <div class="clearfix"></div>
     </footer>

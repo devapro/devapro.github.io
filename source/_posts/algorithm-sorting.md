@@ -1,6 +1,7 @@
 ---
 title: Алгоритмы сортировки
 date: 2020-03-01 02:02:32
+lang: ru
 categories:
 - Algorithm
 tags:

@@ -1,9 +1,10 @@
 ---
 title: Download images (and GIF) with Glide
 date: 2020-03-03 23:18:48
-categories: 
+lang: en
+categories:
 - Android
-tags: 
+tags:
 - android
 - glide
 - gif

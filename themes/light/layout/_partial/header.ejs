@@ -5,9 +5,24 @@
 <nav id="main-nav" class="alignright">
   <ul>
     <% for (var i in theme.menu){ %>
-      <li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+      <li><a href="<%- url_for_lang(theme.menu[i]) %>"><%= i %></a></li>
     <% } %>
   </ul>
   <div class="clearfix"></div>
 </nav>
+
+<!-- Language Switcher -->
+<nav id="lang-switcher" class="alignright">
+  <ul>
+    <% config.language.forEach(function(lang){ %>
+      <li>
+        <a href="<%= lang === 'en' ? '/' : '/' + lang + '/' %>" class="<%= page.lang === lang ? 'active' : '' %>">
+          <%= lang.toUpperCase() %>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+
 <div class="clearfix"></div>

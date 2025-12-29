@@ -43,4 +43,15 @@
   <%- css('css/style.css') %>
   <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   <%- partial('google_analytics') %>
+
+  <!-- Language alternate links for SEO -->
+  <% if (page.lang) { %>
+    <link rel="alternate" hreflang="<%= page.lang %>" href="<%= config.url %><%- url_for_lang(page.path) %>" />
+    <% if (page.translations) { %>
+      <% Object.keys(page.translations).forEach(function(lang){ %>
+        <link rel="alternate" hreflang="<%= lang %>" href="<%= config.url %>/<%= lang %>/<%= page.translations[lang] %>/" />
+      <% }); %>
+    <% } %>
+    <link rel="alternate" hreflang="x-default" href="<%= config.url %><%- url_for_lang(page.path) %>" />
+  <% } %>
 </head>

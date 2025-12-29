@@ -1,5 +1,6 @@
 ---
 title: Image (Bitmap) resizing and compress - Android
+lang: en
 categories:
   - Android
 tags:

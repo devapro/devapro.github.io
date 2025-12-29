@@ -1,6 +1,7 @@
 ---
 title: Алгоритмы для поиска
 date: 2020-03-01 02:02:22
+lang: ru
 categories:
 - Algorithm
 tags:
