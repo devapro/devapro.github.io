@@ -9,7 +9,7 @@ tags:
   - koin
   - dependency-injection
   - architecture
-date: 2025-12-29 18:00:00
+date: 2023-12-21 18:00:00
 excerpt:
   - Complete guide to using Koin scopes for managing dependencies with custom lifetimes in Android applications
 ---

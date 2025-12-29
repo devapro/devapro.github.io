@@ -9,7 +9,7 @@ tags:
   - performance
   - optimization
   - adb
-date: 2025-12-29 18:30:00
+date: 2024-11-19 18:30:00
 excerpt:
   - Complete guide to measuring Android app startup performance using logcat and benchmark tools for optimization
 ---
