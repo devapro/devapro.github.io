@@ -32,18 +32,6 @@
       <% } else { %>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
-
-        <!-- Translation Links -->
-        <% if (item.translations) { %>
-          <div class="translations">
-            <span><%= __('available_in') || 'Also available in:' %></span>
-            <% Object.keys(item.translations).forEach(function(lang){ %>
-              <a href="/<%= lang %>/<%= item.translations[lang] %>/" class="translation-link">
-                <%= lang.toUpperCase() %>
-              </a>
-            <% }); %>
-          </div>
-        <% } %>
       <% } %>
       <div class="clearfix"></div>
     </footer>
