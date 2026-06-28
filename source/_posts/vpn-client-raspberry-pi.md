@@ -6,10 +6,10 @@ categories:
 date: 2025-04-23 00:03:37
 tags:
   - linux
-  - raspberry Pi
+  - raspberry pi
   - vpn
-  - openVPN
-  - wireGuard
+  - openvpn
+  - wireguard
 translations:
   en: Open-VPN-client-on-Raspbery
 excerpt:

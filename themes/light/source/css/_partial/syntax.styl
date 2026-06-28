@@ -1,19 +1,18 @@
 .entry
   .gist
-    background #eee
+    background code-bg
     border 1px solid color-border
-    margin-top 15px
-    padding 7px 15px
-    border-radius 2px
-    text-shadow 0 0 1px #fff
+    border-radius radius-sm
+    margin-top 18px
+    padding 14px 16px
     line-height 1.6
     overflow auto
-    color #666
+    color color-font
     .gist-file
       border none
       font-family inherit
       margin 0
-      font-size 0.9em
+      font-size 0.88em
       .gist-data
         background none
         border-bottom none
@@ -23,9 +22,8 @@
       .gist-meta
         background none
         color color-meta
-        margin-top 5px
+        margin-top 8px
         padding 0
-        text-shadow 0 0 1px #fff
         font-size 100%
         a
           color color-link
@@ -33,28 +31,32 @@
             color color-link
 
 figure.highlight
-  background #eee
+  background code-bg
   border 1px solid color-border
-  margin-top 15px
-  padding 7px 15px
-  border-radius 2px
-  text-shadow 0 0 1px #fff
+  border-radius radius-sm
+  margin-top 18px
+  padding 14px 16px
   line-height 1.6
   overflow auto
   position relative
-  font-size 0.9em
+  font-size 0.88em
+  color color-font
+
   figcaption
     color color-meta
-    margin-bottom 5px
-    text-shadow 0 0 1px #fff
+    margin-bottom 10px
+    font-family font-mono
+    font-size 0.9em
     a
       position absolute
-      right 15px
+      right 16px
+      color color-accent
 
   pre
     border none
     padding 0
     margin 0
+    background none
 
   table
     margin-top 0
@@ -62,27 +64,27 @@ figure.highlight
 
   .gutter
     color color-meta
+    opacity 0.55
     padding 0
-    padding-right 15px
+    padding-right 16px
     border 0
     border-right 1px solid color-border
     text-align right
+    user-select none
 
   .code
-    padding-left 15px
+    padding-left 16px
     border 0
-    border-left 1px solid #fff
-    color #666
+    color color-font
 
   .line
-    height: 20px
+    height 20px
 
   .line.marked
-    background: #d6d6d6
+    background rgba(56, 189, 248, 0.10)
 
+// ── Token colors — One Dark ───────────────────────────────────
 pre
-  // Theme: Solarized - Light
-  // More theme here: http://softwaremaniacs.org/media/soft/highlight/test.html
   .comment
   .template_comment
   .diff .header
@@ -90,7 +92,7 @@ pre
   .pi
   .lisp .string
   .javadoc
-    color #93a1a1
+    color syn-comment
     font-style italic
 
   .keyword
@@ -101,17 +103,20 @@ pre
   .request
   .status
   .nginx .title
-    color #859900
+    color syn-keyword
 
   .number
   .command
+  .hexcolor
+  .tex .formula
+    color syn-number
+
   .string
   .tag .value
   .phpdoc
-  .tex .formula
   .regexp
-  .hexcolor
-    color #2aa198
+  .markdown .value
+    color syn-string
 
   .title
   .localvars
@@ -122,7 +127,7 @@ pre
   .vhdl
   .literal
   .id
-    color #268bd2
+    color syn-func
 
   .attribute
   .variable
@@ -132,7 +137,7 @@ pre
   .class .title
   .parent
   .haskell .type
-    color #b58900
+    color syn-class
 
   .preprocessor
   .preprocessor .keyword
@@ -146,7 +151,13 @@ pre
   .subst
   .cdata
   .clojure .title
-    color #cb4b16
+    color syn-cyan
+
+  .tag
+  .tag .title
+  .css .class
+  .css .id
+    color syn-red
 
   .deletion
-    color #dc322f
+    color syn-red

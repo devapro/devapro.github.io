@@ -1,35 +1,60 @@
 *
   margin 0
   padding 0
+  box-sizing border-box
+
+::selection
+  background rgba(56, 189, 248, 0.28)
+  color #fff
+
+html
+  scroll-behavior smooth
 
 body
-  background color-background
+  background-color color-background
+  background-image radial-gradient(900px 520px at 50% -8%, rgba(56,189,248,0.10), transparent 60%), radial-gradient(760px 520px at 100% 0%, rgba(129,140,248,0.08), transparent 55%)
+  background-attachment fixed
+  background-repeat no-repeat
   color color-font
   font-family font-default
-  font-size 14px
-  text-shadow 0 0 1px transparent
+  font-size 16px
+  line-height 1.65
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
   @media screen and (max-width: 1260px)
-    margin 0 30px
+    padding 0 22px
   @media screen and (max-width: 600px)
-    font-size 13px
+    font-size 15px
+    padding 0 16px
 
 h1, h2, h3, h4, h5, h6
   font-family font-title
+  color color-heading
+  font-weight 600
+  line-height 1.25
+  letter-spacing -0.012em
 
 h1
-  font-size 1.8em
+  font-size 1.9em
 
 h2
   font-size 1.5em
 
 h3
-  font-size 1.3em
+  font-size 1.25em
 
 a
   text-decoration none
   color color-link
+  transition color 0.15s ease
   &:hover
-    text-decoration underline
+    color lighten(color-link, 16%)
+    text-decoration none
+
+hr
+  border none
+  border-top 1px solid color-border
+  margin 28px 0
 
 .alignleft
   float left
@@ -41,22 +66,29 @@ a
   clearfix()
 
 .inner
-  width page-width
+  max-width page-width
+  width 100%
   margin 0 auto
-  @media screen and (max-width: 1260px)
-    width 100%
+
+#content
+  display flex
+  align-items flex-start
+  gap 34px
+  margin-bottom 64px
+  @media screen and (max-width: 900px)
+    flex-direction column
+    gap 0
 
 #main-col
-  width 900px
-  @media screen and (max-width: 1260px)
-    width 100%
-    margin-right -300px
-  @media screen and (max-width: 900px)
-    margin-right 0
-    float none
+  flex 1 1 auto
+  min-width 0          // allow code blocks to scroll instead of stretching layout
 
 #wrapper
-  @media screen and (max-width: 1260px)
-    margin-right 300px
+  min-width 0
+
+#sidebar
+  flex 0 0 286px
+  width 286px
   @media screen and (max-width: 900px)
-    margin-right 0
+    flex none
+    width 100%

@@ -1,26 +1,69 @@
 .archive-title
-  color color-meta
-  font-weight normal
-  margin-bottom 30px
-  text-shadow 0 0 1px #fff
+  color color-heading
+  font-weight 700
+  font-size 1.1em
+  margin-bottom 24px
+  padding 10px 16px
+  display inline-block
+  font-family font-mono
+  letter-spacing -0.01em
+  background color-surface
+  border 1px solid color-border
+  border-radius radius-sm
   &:before
     font-family font-icon
     content '\f073'
-    padding-right 15px
-
+    padding-right 12px
+    color color-accent
   &.tag
     &:before
       content '\f02b'
-
   &.category
     &:before
       content '\f07b'
 
+// compact listing rows (archive / tag / category pages)
 .archive
-  box-shadow 1px 2px 3px color-border
-  border-bottom 1px solid color-border
-  margin-bottom 50px
+  background color-surface
+  border 1px solid color-border
+  border-radius radius
+  overflow hidden
+  margin-bottom 44px
+
   article
-    box-shadow none
+    background none
+    border none
+    border-radius 0
+    border-bottom 1px solid color-border-soft
+    margin-bottom 0
+    transition background 0.15s ease
+    &:last-child
+      border-bottom none
+    &:hover
+      transform none
+      box-shadow none
+      background color-surface-3
+
     .post-content
+      padding 16px 22px
       margin-bottom 0
+      @media screen and (max-width: 600px)
+        padding 14px 18px
+
+    header
+      display flex
+      align-items baseline
+      gap 16px
+      @media screen and (max-width: 600px)
+        flex-direction column
+        gap 4px
+
+    time
+      margin-bottom 0
+      flex 0 0 auto
+      min-width 96px
+
+    .title
+      font-size 1.05em
+      font-weight 500
+      margin 0

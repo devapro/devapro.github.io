@@ -6,7 +6,7 @@ categories:
 date: 2025-12-29 17:30:00
 tags:
   - linux
-  - raspberry Pi
+  - raspberry pi
   - swap
 excerpt:
   - Guide to creating and configuring a swap file on Raspberry Pi to improve performance and prevent out-of-memory errors
@@ -90,7 +90,7 @@ ls -lh /swapfile
 ```
 
 **Expected output:**
-```
+```text
 -rw-r--r-- 1 root root 1.0G Dec 29 17:30 /swapfile
 ```
 
@@ -111,7 +111,7 @@ ls -lh /swapfile
 ```
 
 **Expected output:**
-```
+```text
 -rw------- 1 root root 1.0G Dec 29 17:30 /swapfile
 ```
 
@@ -128,7 +128,7 @@ sudo mkswap /swapfile
 ```
 
 **Expected output:**
-```
+```text
 Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
 no label, UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -150,7 +150,7 @@ sudo swapon --show
 ```
 
 **Expected output:**
-```
+```text
 NAME      TYPE SIZE USED PRIO
 /swapfile file   1G   0B   -2
 ```
@@ -186,7 +186,7 @@ tail -1 /etc/fstab
 ```
 
 **Expected output:**
-```
+```text
 /swapfile none swap sw 0 0
 ```
 

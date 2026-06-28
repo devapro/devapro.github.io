@@ -212,7 +212,7 @@ $JAVA_HOME/bin/java -version
 ```
 
 Expected output:
-```
+```text
 openjdk version "17.0.1" 2021-10-19
 OpenJDK Runtime Environment (build 17.0.1+12)
 OpenJDK 64-Bit Server VM (build 17.0.1+12, mixed mode)

@@ -1,60 +1,116 @@
 #header
-  text-shadow 0 0 1px #fff
-  margin 50px auto
+  position sticky
+  top 0
+  z-index 100
+  display flex
+  align-items center
+  justify-content space-between
+  gap 20px
+  padding 14px 22px
+  margin 0 auto 44px
+  background rgba(10, 14, 22, 0.72)
+  backdrop-filter saturate(160%) blur(14px)
+  -webkit-backdrop-filter saturate(160%) blur(14px)
+  border 1px solid color-border-soft
+  border-radius radius
+  @media screen and (max-width: 600px)
+    flex-wrap wrap
+    gap 12px
+    padding 12px 16px
+
+  .alignleft, .alignright
+    float none
+
+  .alignright
+    display flex
+    align-items center
+    gap 14px
+
   a
-    color #999
+    color color-meta
     &:hover
-      color color-link
+      color color-heading
       text-decoration none
-    
+
   h1
-    font-weight normal
-    font-size 2.5em
-    line-height 1
+    font-size 1.3em
+    font-weight 700
+    line-height 1.1
+    letter-spacing -0.02em
+    &:before
+      content '$ '
+      font-family font-mono
+      font-weight 500
+      color color-success
+    a
+      background accent-gradient
+      -webkit-background-clip text
+      background-clip text
+      -webkit-text-fill-color transparent
 
   h2
-    font-weight normal
-    font-size 0.9em
-    line-height 1
-    margin-top 10px
-  
+    font-weight 400
+    font-size 0.78em
+    line-height 1.2
+    margin-top 3px
+    font-family font-mono
+    color color-meta
+    a
+      color color-meta
+    @media screen and (max-width: 600px)
+      display none
+
   #main-nav
     font-family font-title
-    line-height 2.5em
-    display inline-block
-    vertical-align middle
+    display inline-flex
+    align-items center
     ul
       list-style none
       margin 0
+      display flex
+      gap 2px
       li
-        float left
-        margin-left 30px
+        float none
+        margin 0
+    a
+      display inline-block
+      padding 8px 14px
+      border-radius radius-sm
+      font-size 0.95em
+      font-weight 500
+      &:hover
+        color color-heading
+        background color-surface-3
 
   #lang-switcher
-    font-family font-title
-    line-height 2.5em
-    display inline-block
-    vertical-align middle
-    margin-right 30px
+    display inline-flex
+    align-items center
     ul
       list-style none
       margin 0
+      display flex
+      gap 3px
+      padding 4px
+      background color-surface
+      border 1px solid color-border
+      border-radius radius-pill
       li
-        float left
-        margin-left 15px
-        &:first-child
-          margin-left 0
-        a
-          color #555
-          text-decoration none
-          font-size 0.9em
-          padding 2px 8px
-          border 1px solid transparent
-          border-radius 3px
-          &:hover
-            color #000
-            border-color #ddd
-          &.active
-            color #fff
-            background #4A4A4A
-            border-color #4A4A4A
+        float none
+        margin 0
+    a
+      display block
+      padding 4px 11px
+      border-radius radius-pill
+      font-family font-mono
+      font-size 0.76em
+      font-weight 600
+      letter-spacing 0.03em
+      color color-meta
+      border none
+      &:hover
+        color color-heading
+      &.active
+        color #04121f
+        background accent-gradient
+        &:hover
+          color #04121f

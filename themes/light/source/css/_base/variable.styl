@@ -1,18 +1,47 @@
-// Color
-color-background = #eee
-color-font = #444
-color-meta = #999
-color-border = #ddd
-color-link = #258fb8
+// ─────────────────────────────────────────────────────────────
+//  Design tokens — modern dark "developer" theme
+// ─────────────────────────────────────────────────────────────
 
-// Font
-font-default = "Helvetica Neue", "Helvetica", Arial, sans-serif
-font-serif = "Georgia", serif
-font-mono = Monaco, Menlo, Consolas, Courier New, monospace
-font-title = "Lato", Helvetica Neue, Helvetica, Arial, sans-serif
+// Surfaces
+color-background  = #0a0e16   // page background
+color-surface     = #111824   // cards / widgets
+color-surface-2   = #0c121d   // code blocks, inputs
+color-surface-3   = #18212f   // hover / subtle fills
+color-border      = #1f2a3a
+color-border-soft = #161f2c
 
-@import url("//fonts.googleapis.com/css?family=Lato:400,400italic")
+// Text
+color-font    = #c3cee0       // body text
+color-heading = #f2f6fc       // headings
+color-meta    = #75839a       // muted / meta
 
+// Accent
+color-link     = #38bdf8      // sky
+color-accent   = #38bdf8
+color-accent-2 = #818cf8      // indigo
+color-success  = #56d364      // terminal green
+accent-gradient = linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)
+
+// Syntax (One Dark-ish)
+code-bg     = #0c121d
+syn-comment = #5b6b86
+syn-keyword = #c678dd
+syn-string  = #98c379
+syn-number  = #d19a66
+syn-func    = #61afef
+syn-class   = #e5c07b
+syn-cyan    = #56b6c2
+syn-red     = #e06c75
+
+// Typography
+font-default = 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+font-title   = 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+font-serif   = 'Georgia', serif
+font-mono    = 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, "Courier New", monospace
+
+@import url("//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap")
+
+// Icon font (kept from original theme)
 font-icon = FontAwesome
 font-icon-path = 'font/fontawesome-webfont'
 
@@ -23,5 +52,8 @@ font-icon-path = 'font/fontawesome-webfont'
   src url(font-icon-path.eot?#iefix) format('embedded-opentype'), url(font-icon-path.woff) format('woff'), url(font-icon-path.ttf) format('truetype'), url(font-icon-path.svg#FontAwesomeRegular) format('svg')
 }
 
-// Width
-page-width = 1200px
+// Geometry
+page-width = 1180px
+radius     = 14px
+radius-sm  = 9px
+radius-pill = 999px

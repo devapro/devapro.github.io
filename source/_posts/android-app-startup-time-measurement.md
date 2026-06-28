@@ -177,7 +177,7 @@ adb logcat | grep "Displayed"
 
 **Sample output:**
 
-```
+```text
 ActivityManager: Displayed com.example.myapp/.MainActivity: +856ms
 ```
 
@@ -279,7 +279,7 @@ chmod +x measure_startup.sh
 
 **Sample output:**
 
-```
+```text
 Measuring cold start time for com.example.myapp
 Running 10 iterations...
 
@@ -374,7 +374,7 @@ class StartupBenchmark {
 
 **Sample output:**
 
-```
+```text
 StartupBenchmark_startup
   timeToInitialDisplayMs   min 789.2,   median 856.1,   max 943.7
 ```

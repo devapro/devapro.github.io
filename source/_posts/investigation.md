@@ -1,12 +1,16 @@
-
 ---
-layout: ps
-title: investigation
+title: How to Recover Disk Space on a Full Linux Server
+lang: en
 date: 2026-05-08 00:05:29
-tags: linux
+categories:
+  - Linux
+tags:
+  - linux
+translations:
+  ru: investigation-ru
+excerpt:
+  - A quick, effective process to find and free up disk space on a full Linux server
 ---
-
-# How to Recover Disk Space on a Full Linux Server
 
 If your Linux server runs out of disk space, here’s a quick, effective process to find and fix the problem.
 
@@ -99,6 +103,5 @@ sudo apt clean
 ```
 
 ---
-This version removes personal anecdotes and focuses on actionable steps, making it easy to follow as a general-purpose tutorial.
 
 Total recovered: ~7GB. Total time: about 20 minutes. Lesson value: priceless.

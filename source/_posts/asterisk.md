@@ -14,25 +14,23 @@ excerpt:
 - Self-hosted SIP server
 ---
 
-## Self-hosted SIP server
-
 If you need to connect a few SIP devices in a local network, or via the internet without using a commercial SIP server, you can do it on a small VPS, Raspberry Pi.
 (I suppose you already have VPS or Raspberry Pi and know how to use command line)
 
-Step 1. Install
+### Step 1. Install
 
 ```bash
 sudo apt update
 sudo apt install asterisk
 ```
 
-Check that asterisks started (You should see “active (running)”)
+Check that asterisk started (you should see “active (running)”)
 
 ```bash
 sudo systemctl status asterisk
 ```
 
-Step 2. Configure accounts
+### Step 2. Configure accounts
 
 In `sudo nano /etc/asterisk/pjsip.conf`
 
@@ -115,7 +113,7 @@ minimum_expiration=60
 - `max_contacts=1` - How many devices can register simultaneously
 - `remove_existing=yes` - Replaces old registration on new login
 - `direct_media=no` - Forces RTP through Asterisk (useful for NAT)
-- `media_encryption=no` - Encription
+- `media_encryption=no` - Encryption
 
 **Options media_encryption:**
 
@@ -124,7 +122,7 @@ minimum_expiration=60
 - `dtls` - SRTP with DTLS key exchange
 Use Optional Encryption:
 
-```
+```ini
 media_encryption=sdes
 media_encryption_optimistic=yes ; Allow fallback to unencrypted
 ```
@@ -163,7 +161,7 @@ RTP Media Ports (Optional)
 You can reduce numbers of ports for RTP
 in `/etc/asterisk/rtp.conf`
 
-```
+```ini
 [general]
 rtpstart=10000
 rtpend=20000
@@ -171,7 +169,7 @@ rtpend=20000
 
 Check logs
 
-```
+```bash
 sudo asterisk -rvvv
 ```
 
@@ -179,7 +177,7 @@ On my old Ubuntu server, I needed additional changes for using PJSIP instead of 
 
 Config of Load PJSIP Module
 in `/etc/asterisk/modules.conf` update list of modules for loading:
-```
+```ini
 [modules]
 autoload=yes
 
@@ -200,7 +198,7 @@ load => chan_pjsip.so
 In file:  `/etc/asterisk/rtp.conf`
 
 add:
-```
+```ini
 [general]
 rtpstart=10000
 rtpend=20000
@@ -220,20 +218,20 @@ asterisk -rvvvvv
 ```
 
 Then in the CLI:
-```
+```text
 pjsip set logger on
 core set debug 5
 ```
 
 Make a Test Call and Watch for:
-```
+```text
 -- Called PJSIP/1002
 -- PJSIP/1002-00000001 is ringing
 [NOTICE] res_pjsip_session.c: Incompatible media format - no common codec
 ```
 
 Or:
-```
+```text
 WARNING[xxxxx]: res_pjsip_sdp_rtp.c: No common codecs between endpoints
 ```
 
@@ -438,13 +436,13 @@ transport-tls               tls      0      0  0.0.0.0:5061
 
 If you don't see `transport-tls`, check logs:
 
-```
+```bash
 tail -50 /var/log/asterisk/full | grep -i transport
 ```
 If you see an error:
 
-```
-RROR[1069851] res_sorcery_config.c: Could not create an object of type 'transport' with id 'transport-tls' from configuration file 'pjsip.conf'
+```text
+ERROR[1069851] res_sorcery_config.c: Could not create an object of type 'transport' with id 'transport-tls' from configuration file 'pjsip.conf'
 ```
 
 Check:

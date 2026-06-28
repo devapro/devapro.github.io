@@ -9,7 +9,7 @@ description: 'It is time to make some order...'
 keywords:
 author: Arsenii Kharlanov
 language: [en, ru]
-timezone: ''
+timezone: 'Europe/Belgrade'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -124,3 +124,14 @@ deploy:
 i18n:
   type: [post, page]
   generator: [index, archive, category, tag]
+
+# Plugins
+## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+## RSS/Atom feed: https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  content: true

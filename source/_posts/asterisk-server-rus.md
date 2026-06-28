@@ -14,12 +14,10 @@ excerpt:
 - Настройка самостоятельного SIP сервера с использованием Asterisk
 ---
 
-## Самостоятельная настройка SIP сервера
-
 Если вам нужно подключить несколько SIP устройств в локальной сети или через интернет без использования коммерческого SIP сервера, вы можете это сделать на небольшом VPS или Raspberry Pi.
 (Предполагается, что у вас уже есть VPS или Raspberry Pi и вы знаете, как пользоваться командной строкой)
 
-Шаг 1. Установка
+### Шаг 1. Установка
 
 ```bash
 sudo apt update
@@ -32,7 +30,7 @@ sudo apt install asterisk
 sudo systemctl status asterisk
 ```
 
-Шаг 2. Настройка аккаунтов
+### Шаг 2. Настройка аккаунтов
 
 В `sudo nano /etc/asterisk/pjsip.conf`
 
@@ -125,7 +123,7 @@ minimum_expiration=60
 
 Использование опционального шифрования:
 
-```
+```ini
 media_encryption=sdes
 media_encryption_optimistic=yes ; Разрешить откат к незашифрованному соединению
 ```
@@ -164,7 +162,7 @@ RTP медиа-порты (Опционально)
 Вы можете уменьшить количество портов для RTP
 в `/etc/asterisk/rtp.conf`
 
-```
+```ini
 [general]
 rtpstart=10000
 rtpend=20000
@@ -172,7 +170,7 @@ rtpend=20000
 
 Проверка логов
 
-```
+```bash
 sudo asterisk -rvvv
 ```
 
@@ -180,7 +178,7 @@ sudo asterisk -rvvv
 
 Настройка загрузки модуля PJSIP
 в `/etc/asterisk/modules.conf` обновите список модулей для загрузки:
-```
+```ini
 [modules]
 autoload=yes
 
@@ -201,7 +199,7 @@ load => chan_pjsip.so
 В файле:  `/etc/asterisk/rtp.conf`
 
 добавьте:
-```
+```ini
 [general]
 rtpstart=10000
 rtpend=20000
@@ -221,20 +219,20 @@ asterisk -rvvvvv
 ```
 
 Затем в CLI:
-```
+```text
 pjsip set logger on
 core set debug 5
 ```
 
 Сделайте тестовый звонок и следите за:
-```
+```text
 -- Called PJSIP/1002
 -- PJSIP/1002-00000001 is ringing
 [NOTICE] res_pjsip_session.c: Incompatible media format - no common codec
 ```
 
 Или:
-```
+```text
 WARNING[xxxxx]: res_pjsip_sdp_rtp.c: No common codecs between endpoints
 ```
 
@@ -440,12 +438,12 @@ transport-tls               tls      0      0  0.0.0.0:5061
 
 Если вы не видите `transport-tls`, проверьте логи:
 
-```
+```bash
 tail -50 /var/log/asterisk/full | grep -i transport
 ```
 Если вы видите ошибку:
 
-```
+```text
 ERROR[1069851] res_sorcery_config.c: Could not create an object of type 'transport' with id 'transport-tls' from configuration file 'pjsip.conf'
 ```
 

@@ -1,58 +1,133 @@
 #sidebar
-  width 270px
-  line-height 1.8em
+  line-height 1.7
+  position sticky
+  top 92px
   @media screen and (max-width: 900px)
-    float none
-    width 100%
+    position static
+    top auto
+
   .widget
-    background #fff
-    box-shadow 1px 2px 3px #ddd
-    margin-bottom 30px
+    background color-surface
+    border 1px solid color-border
+    border-radius radius
+    margin-bottom 22px
     word-wrap break-word
+    overflow hidden
+
     .title
-      padding 15px 20px
-      font-size 1em
-      border-bottom 1px solid color-border
-      font-weight normal
+      padding 14px 18px
+      font-size 0.78em
+      font-weight 600
+      text-transform uppercase
+      letter-spacing 0.1em
+      color color-meta
+      font-family font-mono
+      border-bottom 1px solid color-border-soft
+      &:before
+        content '#'
+        color color-accent
+        margin-right 7px
 
     .entry
-      font-size 0.9em
-      padding 15px 20px
+      font-size 0.95em
+      padding 10px 10px
 
     ul, ol, dl
       list-style none
       ul, ol, dl
-        list-style disc
-        margin-left 20px
+        list-style none
+        margin-left 14px
+        margin-top 4px
+
+    li
+      a
+        display block
+        padding 7px 12px
+        border-radius radius-sm
+        color color-font
+        &:hover
+          background color-surface-3
+          color color-heading
+          text-decoration none
+
+  // category / tag widgets: link + count on one row
+  .widget.tag
+    .entry li
+      display flex
+      align-items center
+      justify-content space-between
+      gap 10px
+      a
+        flex 1 1 auto
+      small
+        flex 0 0 auto
+        color color-meta
+        font-family font-mono
+        font-size 0.82em
+        background color-surface-2
+        border 1px solid color-border
+        border-radius radius-pill
+        padding 1px 9px
+        margin-right 6px
+        &:before, &:after
+          content ''
+
+  // archive widget: month link + count pill on one row
+  .widget-archives
+    .entry li
+      display flex
+      align-items center
+      justify-content space-between
+      gap 10px
+      a
+        flex 1 1 auto
+        font-family font-mono
+        font-size 0.92em
+      .count
+        flex 0 0 auto
+        color color-meta
+        font-family font-mono
+        font-size 0.82em
+        background color-surface-2
+        border 1px solid color-border
+        border-radius radius-pill
+        padding 1px 9px
+        margin-right 6px
 
   .search
-    margin-bottom 30px
+    margin-bottom 22px
     input
-      background #fff
-      font-family font-title
-      font-style italic
-      font-size 1em
-      padding 10px 15px
+      background color-surface-2
+      font-family font-mono
+      font-size 0.92em
+      padding 12px 16px
       border 1px solid color-border
+      border-radius radius-sm
       width 100%
       box-sizing border-box
-      color color-meta
+      color color-font
+      transition border-color 0.15s ease
+      &::placeholder
+        color color-meta
       &:focus
-        color color-font
+        outline none
+        border-color color-accent
+        box-shadow 0 0 0 3px rgba(56, 189, 248, 0.14)
 
-  .archive-list-count,
-  .tag small
-      margin-left 15px
-      color color-meta
-      &:before
-        content '('
-      &:after
-        content ')'
+  .archive-list-count
+    margin-left 10px
+    color color-meta
+    font-family font-mono
+    font-size 0.82em
+    &:before
+      content '('
+    &:after
+      content ')'
 
   .twitter
     li
-      border-bottom 1px solid color-border
-      padding 15px 20px
+      border-bottom 1px solid color-border-soft
+      padding 14px 18px
       font-size 0.9em
       &:last-of-type
         border-bottom none
@@ -64,7 +139,18 @@
 
   .tagcloud
     .entry
-      padding-right 5px
+      padding 16px 18px
+      line-height 2.4
     a
-      margin-right 10px
       display inline-block
+      margin-right 6px
+      padding 3px 10px
+      border-radius radius-pill
+      background color-surface-2
+      border 1px solid color-border
+      color color-font
+      font-size 0.9em !important
+      &:hover
+        border-color color-accent
+        color color-accent
+        background rgba(56, 189, 248, 0.07)
