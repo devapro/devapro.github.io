@@ -1,3 +1,7 @@
+# Cache-busting version for static assets (css/js).
+# Bump this on every style/asset change so browsers fetch the new file.
+version: 2
+
 menu:
   Home: /
   Archives: archives
