@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="<%= page.lang || config.language[0] || 'en' %>">
+<html lang="<%= current_lang() %>">
 <%- partial('_partial/head') %>
 
 <body>
   <header id="header" class="inner"><%- partial('_partial/header') %></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><%- body %></div></div>
-    <aside id="sidebar" class="alignright"><%- partial('_partial/sidebar', {}, {cache: 'sidebar-' + (page.lang || config.language[0] || 'en')}) %></aside>
+    <aside id="sidebar" class="alignright"><%- partial('_partial/sidebar', {}, {cache: 'sidebar-' + current_lang()}) %></aside>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><%- partial('_partial/footer') %></footer>

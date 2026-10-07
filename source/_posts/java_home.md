@@ -7,7 +7,7 @@ date: 2025-12-29 17:45:00
 tags:
   - linux
   - java
-  - macOS
+  - macos
 excerpt:
   - Quick guide to setting JAVA_HOME environment variable on Linux, macOS, and Windows
 ---

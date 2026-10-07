@@ -11,47 +11,46 @@
     else title.push(__('archive_a'));
   }
   title.push(config.title);
+
+  var isPost = page.layout === 'post' || page.layout === 'page';
+  var description = page.description || (isPost ? excerpt_text(page, 200) : '') || config.description;
+  var canonical = canonical_url();
+  var image = page.cover || theme.cover || config.cover;
+  if (image) image = full_url_for(image);
+  var currentLang = current_lang();
+  var feedPath = (config.feed && config.feed.path) || 'atom.xml';
   %>
   <title><%= title.join(' | ') %></title>
   <% if (config.author){ %><meta name="author" content="<%= config.author %>"><% } %>
-  <% if (page.description){ %>
-  <meta name="description" content="<%= page.description %>">
-  <% } else if (config.description){ %>
-  <meta name="description" content="<%= config.description %>">
-  <% } else if (page.excerpt){ %>
-  <meta name="description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
-  <% } else if (page.content){ %>
-  <meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
+  <meta name="description" content="<%= description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="<%= canonical %>">
+
+  <meta property="og:type" content="<%= isPost ? 'article' : 'website' %>">
+  <meta property="og:title" content="<%= page.title || config.title %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta property="og:url" content="<%= canonical %>">
+  <meta property="og:site_name" content="<%= config.title %>">
+  <meta property="og:locale" content="<%= currentLang === 'ru' ? 'ru_RU' : 'en_US' %>">
+  <% if (isPost && page.date){ %>
+  <meta property="article:published_time" content="<%= page.date.toISOString() %>">
   <% } %>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <% if (page.title){ %><meta property="og:title" content="<%= page.title %>"/><% } %>
-  <meta property="og:site_name" content="<%= config.title %>"/>
-
-  <% if(page.cover) { %>
-    <meta property="og:image" content="<%= page.cover %>" />
+  <% if (image){ %>
+  <meta property="og:image" content="<%= image %>">
+  <meta name="twitter:card" content="summary_large_image">
   <% } else { %>
-    <meta property="og:image" content="<%= config.cover %>"/>
+  <meta name="twitter:card" content="summary">
+  <% } %>
+  <% if (theme.twitter && theme.twitter.username){ %>
+  <meta name="twitter:site" content="@<%= theme.twitter.username %>">
   <% } %>
 
-  <%- favicon_tag('favicon.png') %>
-  <% if (config.feed) { %>
-    <%- feed_tag() %>
-  <% } else if (theme.rss) { %>
-    <%- feed_tag(theme.rss) %>
-  <% } %>
-  <link rel="stylesheet" href="<%- url_for('css/style.css') %>?v=<%= theme.version || config.version || '1' %>">
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  <link rel="icon" type="image/svg+xml" href="<%- url_for('favicon.svg') %>">
+  <link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- url_for_lang(feedPath, currentLang) %>">
+  <link rel="stylesheet" href="<%- url_for('css/style.css') %>?v=<%= theme.version || '1' %>">
   <%- partial('google_analytics') %>
 
-  <!-- Language alternate links for SEO -->
-  <% if (page.lang) { %>
-    <link rel="alternate" hreflang="<%= page.lang %>" href="<%= config.url %><%- url_for_lang(page.path) %>" />
-    <% if (page.translations) { %>
-      <% Object.keys(page.translations).forEach(function(lang){ %>
-        <link rel="alternate" hreflang="<%= lang %>" href="<%= config.url %>/<%= lang %>/<%= page.translations[lang] %>/" />
-      <% }); %>
-    <% } %>
-    <link rel="alternate" hreflang="x-default" href="<%= config.url %><%- url_for_lang(page.path) %>" />
-  <% } %>
+  <% lang_alternates().forEach(function(alt){ %>
+  <link rel="alternate" hreflang="<%= alt.lang %>" href="<%= alt.url %>">
+  <% }); %>
 </head>

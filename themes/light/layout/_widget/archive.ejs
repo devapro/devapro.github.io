@@ -1,5 +1,5 @@
 <%
-var currentLang = page.lang || config.language[0] || 'en';
+var currentLang = current_lang();
 var langPosts = site.posts.filter(function(post) {
   return post.lang === currentLang;
 });

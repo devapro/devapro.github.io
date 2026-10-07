@@ -56,27 +56,8 @@ prismjs:
   line_number: true
   tab_replace: ''
 
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-# Disabled in favor of custom lang-generator
-index_generator:
-  path: ''
-  per_page: 0
-  order_by: -date
-
-# Archive generator (disabled in favor of lang-archive)
-archive_generator:
-  per_page: 0
-
-# Category generator (disabled in favor of lang-category)
-category_generator:
-  per_page: 0
-
-# Tag generator (disabled in favor of lang-tag)
-tag_generator:
-  per_page: 0
+# Index, archive, category, tag and feed pages are generated per language by
+# scripts/lang-generators.js (paginated by per_page below).
 
 # Category & Tag
 default_category: uncategorized
@@ -94,7 +75,9 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+## 'date': CI checkouts reset file mtimes, so 'mtime' would stamp every post with the deploy time.
+## Set `updated:` in a post's frontmatter when it gets a real revision.
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -111,27 +94,19 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 
-#theme: cactus
-#theme: hexploit
 theme: light
 
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
-
-# i18n Configuration
-i18n:
-  type: [post, page]
-  generator: [index, archive, category, tag]
+# Deployment: GitHub Actions (.github/workflows/pages.yml) builds and publishes on push to main.
 
 # Plugins
 ## Sitemap: https://github.com/hexojs/hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
-## RSS/Atom feed: https://github.com/hexojs/hexo-generator-feed
+  # Tag/category URLs are per language (and may not exist in the default one), so list posts only.
+  tags: false
+  categories: false
+## Atom feeds, one per language (atom.xml, ru/atom.xml) -- see scripts/lang-generators.js
 feed:
-  type: atom
   path: atom.xml
   limit: 20
   content: true

@@ -27,7 +27,7 @@ Most teams write specs the way they write tests for legacy code: after the fact,
 
 What changed is that an LLM agent will now do most of that expensive work — read the codebase, find the gaps, interview the team, draft the spec, and then build from it. **Documentation Driven Development (D3)** is that old discipline made cheap: the team produces a complete specification *before* writing code, with AI woven into every phase — not just the coding at the end. This post walks through the full flow on a feature we actually shipped this way.
 
-If you've read my earlier post on [Documentation in the AI Era](/en/2026/06/27/documentation-in-the-ai-era/), think of D3 as the *process* counterpart to that idea: if docs are the new source code, then D3 is the development lifecycle built around them.
+If you've read my earlier post on {% post_link documentation-in-the-ai-era "Documentation in the AI Era" %}, think of D3 as the *process* counterpart to that idea: if docs are the new source code, then D3 is the development lifecycle built around them.
 
 ## The Problem We're Solving
 

@@ -19,7 +19,7 @@ excerpt:
   - A guided tour of a real 100+ module Android repo laid out for an LLM agent — the `.claude/` skills, rules, and sub-agents that tell it *how* to work, and the in-repo `docs/` that tell it *what* the system does — and the concrete capability each layer unlocks.
 ---
 
-My two earlier posts argued the *why*: [Documentation in the AI Era](/en/2026/06/27/documentation-in-the-ai-era/) made the case that docs are now read by an LLM on every task, and [D3](/en/2026/06/27/documentation-driven-development/) turned that into a development process. This post is the *what* — a walk through an actual repository that's been laid out for an agent, file by file, with one question asked of every layer: **what can the AI now do that it couldn't before?**
+My two earlier posts argued the *why*: {% post_link documentation-in-the-ai-era "Documentation in the AI Era" %} made the case that docs are now read by an LLM on every task, and {% post_link documentation-driven-development "D3" %} turned that into a development process. This post is the *what* — a walk through an actual repository that's been laid out for an agent, file by file, with one question asked of every layer: **what can the AI now do that it couldn't before?**
 
 The subject is a production Android app: 100+ Gradle modules, a feature-per-module architecture, two product flavors. Big enough that no human holds it all in their head — which is exactly the condition under which an agent's ability to *navigate without guessing* stops being a nicety and becomes the whole game.
 
@@ -182,8 +182,8 @@ The investment is real, but it's the same investment that makes a codebase legib
 
 ### Further Reading
 
-- [Documentation in the AI Era: Docs Are the New Source Code](/en/2026/06/27/documentation-in-the-ai-era/) — the systems built on top of this structure
-- [D3: Documentation Driven Development](/en/2026/06/27/documentation-driven-development/) — the process that produces the specs
+- {% post_link documentation-in-the-ai-era "Documentation in the AI Era: Docs Are the New Source Code" %} — the systems built on top of this structure
+- {% post_link documentation-driven-development "D3: Documentation Driven Development" %} — the process that produces the specs
 - Anthropic — [Claude Code best practices](https://docs.anthropic.com/en/docs/claude-code) and [Agent Skills](https://code.claude.com)
 - [llms.txt](https://llmstxt.org) — the machine-readable entry-point convention
 </content>

@@ -19,7 +19,7 @@ excerpt:
   - A close look at one reusable AI skill that turns a rough feature draft into a complete, code-grounded SRS — and then has an independent agent review it before you trust it.
 ---
 
-In [D3: Documentation Driven Development](/en/2026/06/27/documentation-driven-development/) I argued that the highest-leverage move in a feature's life is to write a complete spec *before* any code exists. In [Documentation in the AI Era](/en/2026/06/27/documentation-in-the-ai-era/) I argued that docs are the new source code, and that every agent skill is only as good as the docs it reads. Both posts lean on the same quiet assumption: that a good specification actually gets written.
+In {% post_link documentation-driven-development "D3: Documentation Driven Development" %} I argued that the highest-leverage move in a feature's life is to write a complete spec *before* any code exists. In {% post_link documentation-in-the-ai-era "Documentation in the AI Era" %} I argued that docs are the new source code, and that every agent skill is only as good as the docs it reads. Both posts lean on the same quiet assumption: that a good specification actually gets written.
 
 That assumption is exactly where teams have always failed. So this post zooms all the way in on a single, concrete answer to "but how do you reliably produce that spec?" — one reusable **skill** that takes a rough discovery document and turns it into a polished, code-grounded SRS, then has a second agent review it before you trust the result.
 

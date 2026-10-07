@@ -1,6 +1,6 @@
-# Cache-busting version for static assets (css/js).
-# Bump this on every style/asset change so browsers fetch the new file.
-version: 2
+# Cache-busting version appended to css/style.css (?v=).
+# Bump this on every style change so browsers fetch the new file.
+version: 3
 
 menu:
   Home: /
@@ -14,15 +14,15 @@ widgets:
 
 excerpt_link: Read More
 
+# Optional default og:image for pages without a `cover:` frontmatter field (site path or URL).
+cover:
+
+# Adds twitter:site to page metadata.
 twitter:
   username:
-  show_replies: false
-  tweet_count: 5
 
-fancybox: true
-
+# GA4 measurement ID (G-XXXXXXX).
 google_analytics:
-rss:
 
 comment_provider:
 # Disqus comment

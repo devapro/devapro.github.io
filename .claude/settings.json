@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm run clean)",
+      "Bash(npm run check)",
+      "Bash(npm run validate)",
+      "Bash(npm run check-links)",
+      "Bash(npx hexo generate)",
+      "Bash(npx hexo clean)",
+      "Bash(npx hexo new:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/tools/validate-posts.js\" --hook"
+          }
+        ]
+      }
+    ]
+  }
+}

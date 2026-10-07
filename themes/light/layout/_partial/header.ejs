@@ -6,9 +6,9 @@
   <!-- Language Switcher -->
   <nav id="lang-switcher">
     <ul>
-      <% config.language.forEach(function(lang){ %>
+      <% site_languages().forEach(function(lang){ %>
         <li>
-          <a href="<%= lang === 'en' ? '/' : '/' + lang + '/' %>" class="<%= page.lang === lang ? 'active' : '' %>">
+          <a href="<%- lang_switch_url(lang) %>" hreflang="<%= lang %>" class="<%= page.lang === lang ? 'active' : '' %>">
             <%= lang.toUpperCase() %>
           </a>
         </li>

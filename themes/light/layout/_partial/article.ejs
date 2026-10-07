@@ -1,7 +1,4 @@
 <article id="<%= item.layout %>-<%= item.slug %>" class="h-entry <%= item.layout %>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <% if (item.photos && item.photos.length){ %>
-    <%- partial('post/gallery') %>
-  <% } %>
   <div class="post-content">
     <header>
       <% if (item.layout != 'page'){ %>
@@ -12,7 +9,11 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       <% if (item.excerpt && index){ %>
+        <% if (Array.isArray(item.excerpt)){ %>
+        <p><%= item.excerpt.join(' ') %></p>
+        <% } else { %>
         <%- item.excerpt %>
+        <% } %>
       <% } else { %>
         <%- item.content %>
       <% } %>
@@ -37,5 +38,3 @@
     </footer>
   </div>
 </article>
-
-<!--  partial('comment') -->

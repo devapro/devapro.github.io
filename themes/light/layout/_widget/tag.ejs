@@ -1,5 +1,5 @@
 <%
-var currentLang = page.lang || config.language[0] || 'en';
+var currentLang = current_lang();
 var langTags = [];
 site.tags.sort('name').each(function(item){
   var langPostCount = item.posts.filter(function(post) {
