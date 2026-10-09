@@ -55,6 +55,7 @@ article
 
   .entry
     line-height 1.75
+    overflow-wrap break-word  // long URLs / inline code wrap on narrow screens
     p, blockquote, ul, ol, dl, table, iframe, h2, h3, h4, h5, h6, .video-container, figure.highlight, pre
       margin-top 18px
 
@@ -66,14 +67,17 @@ article
         border-bottom-color color-accent
 
     table
+      // block + overflow lets wide tables scroll inside the card instead of being clipped
+      display block
+      overflow-x auto
+      width fit-content
+      max-width 100%
       border-collapse collapse
       border-spacing 0
       empty-cells show
-      width 100%
       font-size 0.94em
       border 1px solid color-border
       border-radius radius-sm
-      overflow hidden
       th
         white-space nowrap
         color color-heading
@@ -88,6 +92,9 @@ article
 
     figure.highlight
       table
+        display table  // figure.highlight is the scroller for code blocks
+        overflow visible
+        max-width none
         border none
         width auto
         border-collapse separate
@@ -210,7 +217,8 @@ article
       font-size 1.4em
 
   footer
-    margin-top 22px
+    // negative margins pull the footer out of .post-content padding to span the card edge to edge
+    margin 22px -34px -30px
     padding 18px 34px
     border-top 1px solid color-border-soft
     background color-surface-2
@@ -219,6 +227,7 @@ article
     line-height 1.6
     position relative
     @media screen and (max-width: 600px)
+      margin 20px -20px -22px
       padding 16px 20px
 
     a
@@ -309,8 +318,3 @@ article
         &:hover
           color lighten(color-accent-2, 12%)
           text-decoration none
-
-  // page layout (about / static pages) — no leading icon offset
-  &.page
-    .post-content
-      padding 30px 34px

@@ -2,9 +2,17 @@
   line-height 1.7
   position sticky
   top 92px
+  // taller than the viewport, a sticky sidebar hides its lower widgets until the page ends
+  max-height calc(100vh - 108px)
+  overflow-y auto
+  overscroll-behavior contain
+  scrollbar-width thin
+  scrollbar-color color-border transparent
   @media screen and (max-width: 900px)
     position static
     top auto
+    max-height none
+    overflow visible
 
   .widget
     background color-surface

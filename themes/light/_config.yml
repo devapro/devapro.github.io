@@ -1,6 +1,6 @@
 # Cache-busting version appended to css/style.css (?v=).
 # Bump this on every style change so browsers fetch the new file.
-version: 3
+version: 4
 
 menu:
   Home: /
