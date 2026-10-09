@@ -26,8 +26,7 @@ This post describes one way to do that: a small scriptable proxy between the app
 
 The proxy doesn't care which client sits in front of it: Android, iOS or desktop all work, as long as the app can send its HTTP and WebSocket traffic through a proxy and trust its CA. The integration shown here, and in the example repository, is Android only.
 
-<!-- TODO: add the link to the example repository -->
-All the code is in the example repository, laid out the way it would sit in a real Android project. The proxy runs on its own: `cd qa-proxy && npm ci && npm test`.
+All the code is in the example repository, [devapro/qa-ai-proxy](https://github.com/devapro/qa-ai-proxy), laid out the way it would sit in a real Android project. The proxy runs on its own: `cd qa-proxy && npm ci && npm test`.
 
 ## Before the server is ready
 
@@ -227,7 +226,6 @@ The client code is no longer the slow part. When an agent writes a feature, the 
 
 A scriptable proxy removes that wait. Server states become small files with tests. The agent writes them from the contract or the plan, the checker and the proof log tell it whether they're valid and whether they applied, and a person reviews the patch at the end. Only the response the test needs changes, and every change is code you can read.
 
-<!-- TODO: add the link to the example repository -->
-The example repository maps every file; `docs/technical/QA-proxy.md` is the full contract, and `docs/qa-plans/sample-run-output/` shows a real preparation run.
+The [example repository](https://github.com/devapro/qa-ai-proxy) maps every file in its README; [`docs/technical/QA-proxy.md`](https://github.com/devapro/qa-ai-proxy/blob/main/docs/technical/QA-proxy.md) is the full contract, and [`docs/qa-plans/sample-run-output/`](https://github.com/devapro/qa-ai-proxy/tree/main/docs/qa-plans/sample-run-output) shows a real preparation run.
 
 If you're setting up a repository for agents in general, {% post_link anatomy-of-an-agent-ready-repo "Anatomy of an Agent-Ready Repo" %} covers the skills, rules and docs this setup builds on.

@@ -26,8 +26,7 @@ excerpt:
 
 Прокси всё равно, какой клиент перед ним: подойдут Android, iOS и десктоп, если приложение может пустить свой HTTP- и WebSocket-трафик через прокси и доверять его CA. Интеграция в посте и в репозитории с примерами — только для Android.
 
-<!-- TODO: add the link to the example repository -->
-Весь код лежит в репозитории с примерами, разложенный так, как он лежал бы в настоящем Android-проекте. Прокси запускается отдельно: `cd qa-proxy && npm ci && npm test`.
+Весь код лежит в репозитории с примерами [devapro/qa-ai-proxy](https://github.com/devapro/qa-ai-proxy), разложенный так, как он лежал бы в настоящем Android-проекте. Прокси запускается отдельно: `cd qa-proxy && npm ci && npm test`.
 
 ## Пока сервер не готов
 
@@ -227,7 +226,6 @@ qa-device (runner)    checker → list of missing scenarios
 
 Прокси, управляемый кодом, убирает это ожидание. Серверные состояния становятся небольшими файлами с тестами. Агент пишет их по контракту или по плану, проверка спецификаций и журнал говорят ему, корректны ли они и применились ли, а человек в конце проверяет патч. Меняется только тот ответ, который нужен тесту, и каждое изменение — код, который можно прочитать.
 
-<!-- TODO: add the link to the example repository -->
-В README репозитория с примерами расписан каждый файл; `docs/technical/QA-proxy.md` — полный контракт, а `docs/qa-plans/sample-run-output/` показывает настоящий прогон подготовки.
+В README [репозитория с примерами](https://github.com/devapro/qa-ai-proxy) расписан каждый файл; [`docs/technical/QA-proxy.md`](https://github.com/devapro/qa-ai-proxy/blob/main/docs/technical/QA-proxy.md) — полный контракт, а [`docs/qa-plans/sample-run-output/`](https://github.com/devapro/qa-ai-proxy/tree/main/docs/qa-plans/sample-run-output) показывает настоящий прогон подготовки.
 
 Если вы обустраиваете репозиторий под агентов в целом, {% post_link anatomy-of-an-agent-ready-repo-ru "Анатомия репозитория, готового для ИИ-агента" %} описывает навыки, правила и документацию, на которых держится эта схема.
